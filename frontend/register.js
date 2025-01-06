@@ -8,7 +8,7 @@ const progressSteps = document.querySelectorAll(".progress-step");
 
 let formStepsNum = 0;
 
-// Next button
+
 nextBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     formStepsNum++;
@@ -17,7 +17,7 @@ nextBtns.forEach((btn) => {
   });
 });
 
-// Previous button 
+ 
 prevBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     formStepsNum--;
@@ -26,20 +26,131 @@ prevBtns.forEach((btn) => {
   });
 });
 
-// Clear button 
 clearBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     clearCurrentSection();
   });
 });
 
-// Submit button 
+
+const BASE_URL = "https://api.oikotaan.in";
+
 submitBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    alert("Form submitted successfully!");
-    // Add form submission logic here
+  btn.addEventListener("click", async (event) => {
+      event.preventDefault();
+      showLoader(); // Show loader
+      try {
+          const requiredCheckboxes = document.querySelectorAll("input[type='checkbox'][required]");
+          const allChecked = Array.from(requiredCheckboxes).every((checkbox) => checkbox.checked);
+
+          if (!allChecked) {
+              showPrompt("Please check all required checkboxes!", "error");
+              hideLoader(); // Hide loader
+              return;
+          }
+
+          const formData = gatherFormData();
+
+          const response = await fetch(`${BASE_URL}/api/register`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(formData),
+          });
+
+          const result = await response.json();
+
+          if (result.status === "OK") {
+              showPrompt(result.message, "success");
+              setTimeout(() => {
+                  window.location.href = "index.html"; // Redirect after a short delay
+              }, 500);
+          } else {
+              showPrompt(result.message, "error");
+          }
+      } catch (error) {
+          console.log(error);
+          showPrompt("Failed to connect to the server. Please try again later.", "error");
+      } finally {
+          hideLoader(); // Hide loader
+      }
   });
 });
+
+
+
+
+  function gatherFormData() {
+    try {
+        const getValueOrNull = (selector) => {
+            const element = document.querySelector(selector);
+            return element && element.value.trim() ? element.value.trim() : null;
+        };
+
+        const getCheckedValueOrNull = (selector) => {
+            const element = document.querySelector(selector);
+            return element && element.checked ? element.id : null;
+        };
+
+        // Extract email
+        const email = getValueOrNull("input[name='email']");
+
+        // Determine type: Band or Individual
+        const type = getCheckedValueOrNull("input[name='band-type']:checked") === "band" ? "Band" : "Individual";
+
+        // Extract name based on type
+        const name =
+            type === "Band"
+                ? getValueOrNull(".band-box input[placeholder='Band name*']")
+                : getValueOrNull(".ind-box input[placeholder='Your name*']");
+
+        // Extract leaderName for Band type or set null for Individual type
+        const leaderName =
+            type === "Band"
+                ? getValueOrNull(".band-leader-box input[placeholder=\"Band Leader's name*\"]")
+                : null;
+
+        // Extract phoneNumber based on type
+        const phoneNumber = type === "Band"
+            ? getValueOrNull(".band-leader-box input[placeholder='Contact No.*']")
+            : getValueOrNull(".ind-box input[placeholder='Contact No.*']");
+
+        // Extract city based on type
+        const city =
+            type === "Band"
+                ? getValueOrNull(".band-box input[placeholder='Which city is your band based at?*']")
+                : getValueOrNull(".ind-box input[placeholder='City*']");
+
+        // Extract details based on type
+        const details =
+            type === "Band"
+                ? getValueOrNull(".band-box textarea")
+                : getValueOrNull(".ind-box input[placeholder='Enter the instrument\\'s name here']");
+
+        // Extract accommodation requirement
+        const accommodationRequired =
+            getCheckedValueOrNull("input[name='yes-type']:checked") === "yes" ? "Yes" : "No";
+
+        // Extract Google Drive link
+        const driveLink = getValueOrNull(".upload input[placeholder='Enter the link here']");
+
+        // Construct and return the JSON object
+        return {
+            email,
+            type,
+            name,
+            leaderName,
+            phoneNumber,
+            city,
+            details,
+            accommodationRequired,
+            driveLink,
+        };
+    } catch (error) {
+        console.error("Error generating JSON:", error);
+        return null;
+    }
+}
+  
 
 function updateFormSteps() {
   // Toggle active form step
@@ -117,4 +228,66 @@ individualRadio.addEventListener("change", toggleSections);
 // Initial visibility setup
 toggleSections(); // Call the function once to set the initial state
 
+// popup
+// document.addEventListener('DOMContentLoaded', () => {
+//   const rulesLinks = document.querySelectorAll('.register-link a, .remember-forget a'); // Select both rules links
+//   const popup = document.getElementById('rules-popup'); // Popup element
+//   const closeBtn = document.querySelector('.close-btn'); // Close button in the popup
 
+//   // Show the popup
+//   rulesLinks.forEach(link => {
+//     link.addEventListener('click', (event) => {
+//       event.preventDefault(); // Prevent default anchor action
+//       popup.style.display = 'flex'; // Show the popup
+//     });
+//   });
+
+//   Hide the popup on close button click
+//   closeBtn.addEventListener('click', () => {
+//     popup.style.display = 'none'; // Hide the popup
+//   });
+
+//   Hide the popup when clicking outside the popup content
+//   window.addEventListener('click', (event) => {
+//     if (event.target === popup) {
+//       popup.style.display = 'none'; // Hide the popup
+//     }
+//   });
+// });
+
+
+
+function showPrompt(message, type) {
+    const promptContainer = document.createElement("div");
+    promptContainer.className = `custom-prompt ${type}`;
+    promptContainer.innerHTML = `
+    <div class="prompt-icon"></div>
+    <div class="prompt-message">${message}</div>
+  `;
+    document.body.appendChild(promptContainer);
+  
+    // Auto-remove the prompt after a short duration
+    setTimeout(() => {
+      promptContainer.classList.add("fade-out");
+      promptContainer.addEventListener("animationend", () => {
+        promptContainer.remove();
+      });
+    }, 3000);
+  }
+
+  function showLoader() {
+    const loader = document.createElement("div");
+    loader.id = "loader";
+    loader.innerHTML = `
+        <div class="loader-animation"></div>
+        <p>Please Wait...</p>
+    `;
+    document.body.appendChild(loader);
+}
+
+function hideLoader() {
+    const loader = document.getElementById("loader");
+    if (loader) {
+        loader.remove();
+    }
+}

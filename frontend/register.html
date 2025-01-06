@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oikotaan Registration</title>
+    <link
+			rel="icon"
+			type="image/x-icon"
+			href="./assests\images\oikotaan7.webp"
+		/>
+    <title>Oikotaan | Registration</title>
     <link rel="stylesheet" href="register.css">
     <script src="register.js" defer></script>
 </head>
@@ -40,27 +45,41 @@
 
             <!--Steps-->
             <div class="form-box form-box-active intro">
+                <!-- <div class="submission">
+                    <h3>Submission Criterion : </h3>
+                    <ol>
+                        <li>
+                            All the compositions must be original (Includes lyrics, music). Imitation of any kind of
+                            popular tracks, artists will not be allowed.
+                        </li>
+                        <li>
+                            There will be no barrier in making the composition with respect to genre & language.
+                            Compositions may be done solo or in a group. It may be a song or a pure instrumental one.
+                        </li>
+                        <li>
+                            The overall composition should not exceed 10 minutes.
+                        </li>
+                        <li>Deep thinking in making the lyrics and music will be encouraged.</li>
+                        <li>
+                            Use of unparliamentary phrases and direct political indication in the lyrics will not be
+                            allowed.
+                        </li>
+                        <li>A group will contain maximum 10 members.</li>
+                        <li>A group or an individual can submit only one composition.</li>
+                        <li>The submitted song should be the same as the one being performed in the event.</li>
+
+                    </ol>
+                </div> -->
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
                     <input type="email" class="input-field" required value placeholder="Email ID*" name="email">
                     <!-- <label for="">Email</label> -->
                 </div>
                 </br>
-                <div class="remember-forget">
-                    <label for="">
-                        <input type="checkbox" required>
-                        I confirm that I am below 30 years old.*</label>
-                </div>
-                <div class="remember-forget">
-                    <label for="">
-                        <input type="checkbox" required>
-                        I have reviewed and agree to all the <a href="#">Rule and Regulations</a>. Ready to
-                        proceed!*</label>
-
-                </div>
                 <div class="register-link">
-                    <p>Don't know the rules? <a href="#">Click Here!</a></p>
+                    <p>Don't know the rules? <a href="https://drive.google.com/file/d/1CpAfXsB9_KpthcsJG61klIVTHjIXxkQJ/view?usp=sharing" target="_blank">Click Here!</a></p>
                 </div>
+                
                 <div class="button-group">
                     <button type="button" id="clear1" class="button-88 btn-clear clearBtn">Clear</button>
                     <button type="submit" id="next1" class="button-88 btn-next nextBtn">Next</button>
@@ -85,11 +104,11 @@
                             <input type="text" class="input-field" required value placeholder="Band name*" name="text">
                             <!-- <label for="">Email</label> -->
                         </div>
-                        <div class="input-box">
+                        <!-- <div class="input-box">
                             <span class="icon"><ion-icon name="mail"></ion-icon></span>
                             <input type="email" class="input-field" required value placeholder="Band Email*"
                                 name="email" title="Please enter a valid email address (e.g., name@example.com)">
-                        </div>
+                        </div> -->
                         <div class="input-box">
                             <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
                             <input type="text" class="input-field" required value
@@ -112,7 +131,7 @@
                                 <!-- <label for="">Email</label> -->
                             </div>
                         </div>
-                        <div class="band-leader-box2">
+                        <!-- <div class="band-leader-box2">
                             <div class="input-box">
                                 <span class="icon"><ion-icon name="mail"></ion-icon></span>
                                 <input type="email" class="input-field" required value placeholder="Email*" name="email"
@@ -123,9 +142,9 @@
                                 <input type="text" class="input-field" placeholder="Alternative Contact No."
                                     name="contact" pattern="\d{10}"
                                     title="Please enter a valid 10-digit mobile number.">
-                                <!-- <label for="">Email</label> -->
-                            </div>
-                        </div>
+                                <label for="">Email</label> -->
+                            <!-- </div>
+                        </div> -->
                     </div>
                     <div class="input-box">
                         <legend class="edit-legend">Band Member list (along with the instruments they play)* : </legend>
@@ -145,21 +164,21 @@
                             <input type="text" class="input-field" required value placeholder="Your name*" name="text">
                             <!-- <label for="">Name</label> -->
                         </div>
-                        <div class="input-box">
+                        <!-- <div class="input-box">
                             <span class="icon"><ion-icon name="mail"></ion-icon></span>
                             <input type="email" class="input-field" required value placeholder="Email ID*" name="email"
                                 title="Please enter a valid email address (e.g., name@example.com)">
-                        </div>
+                        </div> -->
                         <div class="input-box">
                             <span class="icon"><ion-icon name="call-outline"></ion-icon></span>
                             <input type="text" class="input-field" required placeholder="Contact No.*" name="contact"
                                 pattern="\d{10}" title="Please enter a valid 10-digit mobile number.">
                         </div>
-                        <div class="input-box">
+                        <!-- <div class="input-box">
                             <span class="icon"><ion-icon name="call-outline"></ion-icon></span>
                             <input type="text" class="input-field" placeholder="Alternative Contact No." name="contact"
                                 pattern="\d{10}" title="Please enter a valid 10-digit mobile number.">
-                        </div>
+                        </div> -->
                         <div class="input-box">
                             <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
                             <input type="text" class="input-field" required value placeholder="City*" name="text">
@@ -186,13 +205,13 @@
                             <input type="radio" id="yes" name="yes-type" class="inline" /> Yes
                         </label>
                         <label for="no">
-                            <input type="radio" id="no" name="yes-type" class="inline" /> No
+                            <input type="radio" id="no" name="yes-type" class="inline" checked/> No
                         </label>
                     </div>
                 </div>
 
                 <div class="register-link">
-                    <p>Don't know the rules? <a href="#">Click Here!</a></p>
+                    <p>Don't know the rules? <a href="https://drive.google.com/file/d/1CpAfXsB9_KpthcsJG61klIVTHjIXxkQJ/view?usp=sharing" target="_blank">Click Here!</a></p>
                 </div>
                 <div class="button-group">
                     <button type="button" id="clear2" class="button-88 btn-clear clearBtn">Clear</button>
@@ -249,9 +268,20 @@
                         I confirm that all the information provided by me is accurate and complete.*</label>
 
                 </div>
-                <div class="register-link">
-                    <p>What after submission? <a href="#">Click Here!</a></p>
+                <div class="remember-forget">
+                    <label for="">
+                        <input type="checkbox" required>
+                        I have reviewed and agree to all the <a href="#">Rule and Regulations</a>. Ready to
+                        proceed!*</label>
+
                 </div>
+                <!-- <div class="register-link">
+                    <p>What after submission? <a href="#">Click Here!</a></p>
+                </div> -->
+                <div class="register-link">
+                    <p>Don't know the rules? <a href="https://drive.google.com/file/d/1CpAfXsB9_KpthcsJG61klIVTHjIXxkQJ/view?usp=sharing" target="_blank">Click Here!</a></p>
+                </div>
+
                 <div class="button-group">
                     <button type="button" id="clear3" class="button-88 btn-clear clearBtn">Clear</button>
                     <div class="button-group2">
@@ -262,6 +292,43 @@
             </div>
         </form>
     </div>
+    <!-- <div id="rules-popup" class="rules-popup">
+        <div class="rules-popup-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="rules-reg">Rules and Regulations</h3><br>
+            <p>
+                <strong class="sub-head">SUBMISSION CRITERIA:</strong>
+                <br><br>
+                <ol class="criteria-list">
+                    <li>All compositions must be original, including both lyrics and music.</li>
+                    <li>Imitation of popular tracks or artists is strictly prohibited.</li>
+                    <li>There is no restriction on genre or language. Performances can be solo or group-based and may include songs or purely instrumental pieces.</li>
+                    <li>Participants may perform more than one song, but the total performance time must not exceed <b class="list-bold">10 minutes</b>.</li>
+                    <li>Record the composition in <b class="list-bold">video format</b> and upload it to Google Drive.</li>
+                    <li>In the same Google Drive folder, upload the lyrics of the composition in <b class="list-bold">.pdf</b>, <b class="list-bold">.docx</b>, or <b class="list-bold">.txt</b> format. For purely instrumental compositions, upload a blank file as a placeholder.</li>
+                    <li>Name the Google Drive folder as <b class="list-bold">"Oikotaan_"</b> and share the link in the field provided on the registration form.</li>
+                    <li>If multiple compositions are performed, the submission must include all relevant lyrics in a single document and compositions in a single video clip.</li>
+                    <li>The lyrics and video clip submitted must exactly match the composition(s) performed on stage.</li>
+                    <li>Use of unparliamentary phrases or direct political references in lyrics is strictly prohibited.</li>
+                    <li>A group can contain a maximum of <b class="list-bold">10 members</b>.</li>
+                </ol>
+                <br><br>
+                <strong id="after" class="sub-head">AFTER SUBMISSION:</strong>
+                <br><br>
+                <ol class="criteria-list">
+                    <li>The submitted compositions will be shortlisted by the <b class="list-bold">'Euphony Oikotaan Selection Team'</b>. A final registration form will be sent to shortlisted participants, which they must print, sign, and bring along with their identification on the event day.</li>
+                    <li>Time slots for sound checks will be allocated in the morning on a first-come, first-serve basis. Performers are encouraged to arrive at the venue early to secure their slot.</li>
+                    <li>No abusive behavior will be entertained at the venue.</li>
+                    <li>Participants will have <b class="list-bold">10+5 minutes</b> on stage for their performance, including necessary tune-ups.</li>
+                    <li>A drum kit with a five-brass kit and a scale-changer harmonium will be provided upon request. Participants must bring all other instruments.</li>
+                    <li>Active cooperation from participants is solicited.</li>
+                    <li>Decisions made by the organizers in case of any disputes will be final.</li>
+                </ol>
+            </p>
+        </div>
+    </div>   -->
+    
+
     </main>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
