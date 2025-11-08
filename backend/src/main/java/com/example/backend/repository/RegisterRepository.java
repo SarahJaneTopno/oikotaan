@@ -39,7 +39,7 @@ public class RegisterRepository {
     }
 
     public int getRegId() {
-        String sql = "SELECT COALESCE(MAX(reg_id), '2025OKTN7000') FROM registrants";
+        String sql = "SELECT COALESCE(MAX(reg_id), '2026OKTN8000') FROM registrants";
         String lastRegId = jdbcTemplate.queryForObject(sql, String.class);
         if (lastRegId != null && lastRegId.matches("\\d{4}OKTN7\\d{3}")) {
             return Integer.parseInt(lastRegId.substring(9));
