@@ -31,7 +31,7 @@ public class EmailService {
 
             helper.setFrom(senderEmail);
             helper.setTo(recipientEmail);
-            helper.setSubject("Oikotaan 7 | Registration Confirmation | " + regId);
+            helper.setSubject("Oikotaan 8 | Registration Confirmation | " + regId);
 
             String htmlContent = "<html>"
                     + "<body style='font-family: Arial, sans-serif; margin: 0; padding: 0;'>"
@@ -42,7 +42,7 @@ public class EmailService {
                     + "<div style='background-color: #ffffff; padding: 20px; border-radius: 8px;'>"
                     + "<h2 style='text-align: center; color: #4CAF50; font-size: 22px;'>Greetings from Team Euphony Oikotaan!</h2>"
                     + "<p style='font-size: 16px;'>Hi <b>" + bandName + "</b>,</p>"
-                    + "<p style='font-size: 16px;'>We are thrilled to inform you that your registration for <b>Oikotaan 7</b> has been successfully processed.</p>"
+                    + "<p style='font-size: 16px;'>We are thrilled to inform you that your registration for <b>Oikotaan 8</b> has been successfully processed.</p>"
                     + "<p style='font-size: 16px;'><b>Registration Number:</b> " + regId + "</p>"
                     + "<p style='font-size: 16px;'>Please keep this number handy for any future communication with us.</p>"
                     + "<h3 style='color: #333; font-size: 18px;'>Next Steps:</h3>"
@@ -54,8 +54,8 @@ public class EmailService {
                     + "<p style='font-size: 16px;'>We look forward to seeing you rock the stage and create magic!</p><br/>"
                     + "<h3 style='color: #333; font-size: 18px;'>Contact Us:</h3>"
                     + "<table style='width: auto; font-size: 15px; line-height: 1.8;'>"
-                    + "<tr><td style='padding-right: 10px;'><b>Sourik</b>:</td><td>+91 8944913915</td></tr>"
-                    + "<tr><td style='padding-right: 10px;'><b>Rishav</b>:</td><td>+91 9674431870</td></tr>"
+                    + "<tr><td style='padding-right: 10px;'><b>Farhan</b>:</td><td>+91 7384928393</td></tr>"
+                    + "<tr><td style='padding-right: 10px;'><b>Shubhayu</b>:</td><td>+91 93192 00435</td></tr>"
                     + "<tr><td style='padding-right: 10px;'><b>Aditi</b>:</td><td>+91 8910207436</td></tr>"
                     + "<tr><td style='padding-right: 10px;'><b>Aryan</b>:</td><td>+91 7044596472</td></tr>"
                     + "</table>"
