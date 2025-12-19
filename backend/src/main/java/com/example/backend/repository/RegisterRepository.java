@@ -29,7 +29,7 @@ public class RegisterRepository {
     }
 
     public String findRegIdByEmail(String email) {
-        String sql = "SELECT reg_id FROM registrants WHERE email = ?";
+        String sql = "SELECT reg_id FROM registrants WHERE email = " + email;
         return jdbcTemplate.query(sql, new Object[]{email}, rs -> {
             if (rs.next()) {
                 return rs.getString("reg_id");
