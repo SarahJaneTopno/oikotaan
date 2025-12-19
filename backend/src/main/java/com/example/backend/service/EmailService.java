@@ -29,8 +29,15 @@ public class EmailService {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-            helper.setFrom(senderEmail);
-            helper.setTo(recipientEmail);
+            if(senderEmail != null)
+            {
+                helper.setFrom(senderEmail);
+            }
+
+            if(recipientEmail != null)
+            {
+                helper.setTo(recipientEmail);
+            }
             helper.setSubject("Oikotaan 8 | Registration Confirmation | " + regId);
 
             String htmlContent = "<html>"

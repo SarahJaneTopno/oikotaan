@@ -33,7 +33,7 @@ public class RegisterRepository {
         
         return jdbcTemplate.query(sql, rs -> {
             if (rs.next()) {
-                return rs.getString("reg_id");
+                return rs.getString("reg_id");                 
             }
             return null;
         }, email); 

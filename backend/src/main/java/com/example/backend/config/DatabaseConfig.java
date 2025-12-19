@@ -25,10 +25,15 @@ public class DatabaseConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(dbDriverClassName);
-        dataSource.setUrl(dbUrl);
-        dataSource.setUsername(dbUsername);
-        dataSource.setPassword(dbPassword);
-        return dataSource;
+        if(dbDriverClassName != null && dbUrl != null && dbUsername != null && dbPassword != null) {
+            dataSource.setDriverClassName(dbDriverClassName);
+            dataSource.setUrl(dbUrl);
+            dataSource.setUsername(dbUsername);
+            dataSource.setPassword(dbPassword);
+            return dataSource;
+    }
+
+        throw new IllegalStateException("Database configuration properties are not set properly.");
+   
     }
 }
