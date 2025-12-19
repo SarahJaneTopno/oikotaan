@@ -66,6 +66,6 @@ public class RegisterService {
 
     private String generateRegId() {
         int lastId = registerRepository.getRegId();
-        return String.format("2025OKTN7%03d", lastId + 1);
+        return String.format("2026OKTN8%03d", lastId + 1);
     }
 }

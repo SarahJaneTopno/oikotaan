@@ -32,8 +32,8 @@ clearBtns.forEach((btn) => {
   });
 });
 
-
-const BASE_URL = "https://server.oikotaan.in";
+// const BASE_URL = "https://localhost:8081/api/register";
+const BASE_URL = "http://localhost:8081";
 
 submitBtns.forEach((btn) => {
   btn.addEventListener("click", async (event) => {
@@ -50,7 +50,7 @@ submitBtns.forEach((btn) => {
           }
 
           const formData = gatherFormData();
-
+          console.log(formData);
           const response = await fetch(`${BASE_URL}/api/register`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
