@@ -17,7 +17,7 @@ public class RegisterService {
     private EmailService emailService;
 
     public String register(User user) throws Exception {
-        System.out.println(user);
+        System.out.println(user.getName());
         validateUser(user);
 
         String existingRegId = registerRepository.findRegIdByEmail(user.getEmail());

@@ -17,7 +17,7 @@ public class RegisterController {
 
     @PostMapping
     public ResponseEntity<ApiResponse> registerUser(@RequestBody User user) {
-        System.out.println(user.getName());
+        // System.out.println(user.getName());
         try {
             String result = registerService.register(user);
             return new ResponseEntity<>(new ApiResponse(result, HttpStatus.OK), HttpStatus.OK);
