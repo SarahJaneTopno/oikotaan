@@ -29,14 +29,16 @@ public class RegisterRepository {
     }
 
     public String findRegIdByEmail(String email) {
-        String sql = "SELECT reg_id FROM registrants WHERE email =' " + email + "'";
-        return jdbcTemplate.query(sql, new Object[]{email}, rs -> {
+        String sql = "SELECT reg_id FROM registrants WHERE email = ?";
+        
+        return jdbcTemplate.query(sql, rs -> {
             if (rs.next()) {
                 return rs.getString("reg_id");
             }
             return null;
-        });
+        }, email); 
     }
+
 
     public int getRegId() {
         String sql = "SELECT COALESCE(MAX(reg_id), '2026OKTN8000') FROM registrants";
