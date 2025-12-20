@@ -30,9 +30,11 @@ public class RegisterRepository {
 
     public String findRegIdByEmail(String email) {
         String sql = "SELECT reg_id FROM registrants WHERE email = ?";
-        
+
         return jdbcTemplate.query(sql, rs -> {
+            System.out.println (rs);
             if (rs.next()) {
+                System.out.println (rs.getString("reg_id"));
                 return rs.getString("reg_id");
             }
             return null;
