@@ -10,6 +10,9 @@ import javax.sql.DataSource;
 public class JdbcTemplateConfig {
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+        if(dataSource == null) {
+            throw new IllegalStateException("DataSource bean is not configured properly.");
+        }
         return new JdbcTemplate(dataSource);
     }
 }
