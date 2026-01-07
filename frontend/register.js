@@ -33,7 +33,7 @@ clearBtns.forEach((btn) => {
 });
 
 // const BASE_URL = "https://localhost:8081/api/register";
-const BASE_URL = "http://ec2-13-61-141-151.eu-north-1.compute.amazonaws.com:8081";
+const BASE_URL = "https://api.oikotaan.in";
 
 submitBtns.forEach((btn) => {
   btn.addEventListener("click", async (event) => {
