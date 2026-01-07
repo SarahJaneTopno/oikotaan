@@ -86,7 +86,7 @@ public class EmailService {
             helper.addInline("euphonyLogo", euphonyLogo);
             Resource iiestLogo = new ClassPathResource("static/iiest-white.png");
             helper.addInline("iiestLogo", iiestLogo);
-            Resource eventLogo = new ClassPathResource("static/fest-logo.jpg");
+            Resource eventLogo = new ClassPathResource("static/fest-logo_8.jpg");
             helper.addInline("eventLogo", eventLogo);
 
             javaMailSender.send(message);
